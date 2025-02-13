@@ -45,3 +45,21 @@ main {
 .img-flag {
   width: 2.5rem;
 }
+
+/* VOTE */
+.vote-container {
+  display: flex;
+}
+
+.stars-container {
+  display: flex;
+}
+
+.vote-star {
+  color: gold;
+  margin-right: 4px;
+}
+
+.vote-star.empty {
+  color: lightgray;
+}
