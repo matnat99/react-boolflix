@@ -1,0 +1,47 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* GENERAL */
+.container {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+}
+
+/* HEADER */
+header {
+  border-bottom: 0.0625rem solid black;
+  padding: 1.25rem;
+}
+
+/* MAIN */
+main {
+  padding: 1.25rem;
+}
+
+.movies {
+  border-bottom: 0.0625rem solid black;
+}
+
+.movies,
+.series {
+  padding: 1.25rem;
+}
+
+.flex-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.875rem;
+  row-gap: 2.5rem;
+}
+
+.img-flag {
+  width: 2.5rem;
+}

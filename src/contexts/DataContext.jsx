@@ -6,9 +6,10 @@ const DataContext = createContext();
 // Definizione di un custom provider (trasmette i dati da condividere)
 const DataContextProvider = ({ children }) => {
   const [movies, setMovies] = useState([]);
+  const [tvSeries, setTvSeries] = useState([]);
 
   return (
-    <DataContext.Provider value={{ movies, setMovies }}>
+    <DataContext.Provider value={{ movies, setMovies, tvSeries, setTvSeries }}>
       {children}
     </DataContext.Provider>
   );
