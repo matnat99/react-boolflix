@@ -41,9 +41,6 @@ export default function Movie({ movie, getFlagImage }) {
               ))}
             </div>
           </div>
-          <p>
-            <strong>Trama:</strong> {movie.overview}
-          </p>
         </div>
       </div>
     </div>

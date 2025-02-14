@@ -41,9 +41,6 @@ export default function TvSeries({ series, getFlagImage }) {
               ))}
             </div>
           </div>
-          <p>
-            <strong>Trama:</strong> {series.overview}
-          </p>
         </div>
       </div>
     </div>

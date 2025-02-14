@@ -9,7 +9,7 @@
 
 /* GENERAL */
 .container {
-  max-width: 87.5rem;
+  max-width: 84.375rem;
   margin: 0 auto;
 }
 
@@ -49,6 +49,7 @@ header {
 
 .img-container {
   width: 9.375rem;
+  cursor: pointer;
 }
 
 .header-links {
@@ -64,7 +65,7 @@ header {
 }
 
 .header-links a:hover {
-  color: #fc2406;
+  color: #a01907;
   transition: 0.3s;
 }
 
@@ -102,37 +103,80 @@ header {
 }
 
 .header-menu-right ul a:hover {
-  color: #fc2406;
+  color: #a01907;
 }
 
 /* MAIN */
 main {
-  padding: 6.25rem 0;
+  padding: 1.875rem 0;
 }
 
 .movies,
 .series {
-  max-width: 84.375rem;
-  margin: 0 auto;
+  position: relative;
+  margin: 0 1.25rem;
+}
+
+.movies h1,
+.series h1 {
+  color: #a01907;
+  font-size: 1.5625rem;
+}
+
+/* Carousel */
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+  padding: 3.125rem 3.75rem;
+  width: 100%;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
 }
 
 .flex-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
   gap: 2.5rem;
-  row-gap: 5rem;
   color: white;
   list-style: none;
 }
 
-.flex-container:first-child {
-  margin-bottom: 9.375rem;
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 11;
+}
+
+.scroll-btn:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
 }
 
 /* Card*/
 .card {
+  width: 20rem;
+  height: 12.5rem;
   position: relative;
   border: 1px solid black;
+  border-radius: 0.3125rem;
+  overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
@@ -140,6 +184,12 @@ main {
 .card:hover {
   transform: scale(1.2);
   transition: 0.5s;
+  z-index: 10;
+  border-radius: 0.3125rem;
+}
+
+.card div:first-child {
+  width: 100%;
 }
 
 .card img {
@@ -151,7 +201,7 @@ main {
   width: 100%;
   height: 100%;
   top: 0;
-  padding: 1.5625rem 0.9375rem;
+  padding: 0.625rem;
   background-color: black;
   opacity: 0;
   cursor: pointer;
@@ -160,6 +210,7 @@ main {
 .hoverlay:hover {
   opacity: 0.9;
   transition: 0.5s;
+  font-size: 0.9375rem;
 }
 
 .description {
@@ -169,7 +220,6 @@ main {
   flex-direction: column;
   justify-content: end;
   gap: 0.3125rem;
-  font-family: 1rem;
 }
 
 .language {
