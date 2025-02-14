@@ -21,10 +21,7 @@ export default function Main() {
   return (
     <main>
       <div className="container">
-        <h1>Lista dei film e delle serie TV</h1>
-
         <section className="movies">
-          <h2>Film</h2>
           <ul className="flex-container">
             {movies.map((movie) => (
               <li key={movie.id}>
@@ -35,7 +32,6 @@ export default function Main() {
         </section>
 
         <section className="series">
-          <h2>Serie TV</h2>
           <ul className="flex-container">
             {tvSeries.map((series) => (
               <li key={series.id}>

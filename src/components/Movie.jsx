@@ -10,37 +10,42 @@ export default function Movie({ movie, getFlagImage }) {
   const vote = Math.min(Math.floor(movie.vote_average / 2 + 0.5), 5) || 1;
 
   return (
-    <>
+    <div className="card">
       <div>
-        <h3>{movie.title}</h3>
-        <p>
-          <strong>Titolo originale:</strong> {movie.original_title}
-        </p>
-        <div>
-          <img src={moviePosterUrl} alt={movie.title} />
-        </div>
-        <div>
-          <strong>Lingua originale:</strong>
-          <img
-            className="img-flag"
-            src={getFlagImage(movie.original_language)}
-            alt={movie.original_language}
-          />
-        </div>
-        <div className="vote-container">
-          <strong>Voto:</strong>
-          <div className="stars-container">
-            {starsArray.map((index) => (
-              <i
-                key={index}
-                className={`vote-star ${
-                  index < vote ? "fas fa-star" : "far fa-star empty"
-                }`}
-              ></i>
-            ))}
+        <img src={moviePosterUrl} alt={movie.title} />
+      </div>
+      <div className="hoverlay">
+        <div className="description">
+          <h3>{movie.title}</h3>
+          <p>
+            <strong>Titolo originale:</strong> {movie.original_title}
+          </p>
+          <div className="language">
+            <strong>Lingua originale:</strong>
+            <img
+              className="img-flag"
+              src={getFlagImage(movie.original_language)}
+              alt={movie.original_language}
+            />
           </div>
+          <div className="vote-container">
+            <strong>Voto:</strong>
+            <div className="stars-container">
+              {starsArray.map((index) => (
+                <i
+                  key={index}
+                  className={`vote-star ${
+                    index < vote ? "fas fa-star" : "far fa-star empty"
+                  }`}
+                ></i>
+              ))}
+            </div>
+          </div>
+          <p>
+            <strong>Trama:</strong> {movie.overview}
+          </p>
         </div>
       </div>
-    </>
+    </div>
   );
 }

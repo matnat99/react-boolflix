@@ -10,33 +10,42 @@ export default function TvSeries({ series, getFlagImage }) {
   const vote = Math.min(Math.floor(series.vote_average / 2 + 0.5), 5) || 1;
 
   return (
-    <>
-      <h3>{series.name}</h3>
-      <p>
-        <strong>Titolo originale:</strong> {series.original_name}
-      </p>
-      <img src={seriesPosterUrl} alt={series.name} />
+    <div className="card">
       <div>
-        <strong>Lingua originale:</strong>
-        <img
-          className="img-flag"
-          src={getFlagImage(series.original_language)}
-          alt={series.original_language}
-        />
+        <img src={seriesPosterUrl} alt={series.name} />
       </div>
-      <div className="vote-container">
-        <strong>Voto:</strong>
-        <div className="stars-container">
-          {starsArray.map((index) => (
-            <i
-              key={index}
-              className={`vote-star ${
-                index < vote ? "fas fa-star" : "far fa-star empty"
-              }`}
-            ></i>
-          ))}
+      <div className="hoverlay">
+        <div className="description">
+          <h3>{series.name}</h3>
+          <p>
+            <strong>Titolo originale:</strong> {series.original_name}
+          </p>
+          <div>
+            <strong>Lingua originale:</strong>
+            <img
+              className="img-flag"
+              src={getFlagImage(series.original_language)}
+              alt={series.original_language}
+            />
+          </div>
+          <div className="vote-container">
+            <strong>Voto:</strong>
+            <div className="stars-container">
+              {starsArray.map((index) => (
+                <i
+                  key={index}
+                  className={`vote-star ${
+                    index < vote ? "fas fa-star" : "far fa-star empty"
+                  }`}
+                ></i>
+              ))}
+            </div>
+          </div>
+          <p>
+            <strong>Trama:</strong> {series.overview}
+          </p>
         </div>
       </div>
-    </>
+    </div>
   );
 }

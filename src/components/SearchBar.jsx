@@ -4,10 +4,16 @@ import axios from "axios";
 
 export default function SearchBar() {
   const [search, setSearch] = useState("");
+  const [isVisible, setIsVisible] = useState(false);
   const { setMovies, setTvSeries } = useDataContext();
 
   const handleSearch = (event) => {
     event.preventDefault();
+
+    if (!isVisible) {
+      setIsVisible(true);
+      return;
+    }
 
     axios
       .get("https://api.themoviedb.org/3/search/movie", {
@@ -38,18 +44,25 @@ export default function SearchBar() {
       .catch((error) => {
         console.error("Errore nella ricerca dei film:", error);
       });
+
+    setIsVisible(false);
   };
 
   return (
-    <form onSubmit={handleSearch}>
-      <input
-        name="search"
-        type="search"
-        placeholder="Cerca..."
-        value={search}
-        onChange={(event) => setSearch(event.target.value)}
-      />
-      <button type="submit">Cerca</button>
+    <form onSubmit={handleSearch} className="search-form">
+      {isVisible && (
+        <input
+          className="search-bar"
+          name="search"
+          type="search"
+          placeholder="Cerca..."
+          value={search}
+          onChange={(event) => setSearch(event.target.value)}
+        />
+      )}
+      <button className="btn-search" type="submit">
+        <i className="fa-solid fa-magnifying-glass"></i>
+      </button>
     </form>
   );
 }
